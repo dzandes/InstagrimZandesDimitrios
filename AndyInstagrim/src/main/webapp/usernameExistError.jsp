@@ -1,0 +1,38 @@
+<%-- 
+    Document   : usernameExistError
+    Created on : Oct 9, 2014
+    Author     : Zandes Dimitrios
+--%>
+
+
+<%@ page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page import="uk.ac.dundee.computing.aec.instagrim.stores.*" %>
+<!DOCTYPE html>
+<html>
+
+    <head>
+       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+       <title>Instagrim</title>
+        <link rel="stylesheet" type="text/css" href="/Instagrim/Styles.css" />
+    </head>
+    
+    <body>
+    
+       <header>
+          <h1>InstaGrim!</h1>
+          <h2>Your world in Black and White</h2>
+       </header>
+       
+       <script type="text/javascript">
+          alert("The username you selected already exists. Click \"Close\" and start the register process again.");
+       </script>
+       
+       <p><b>Click the "Register Repeat" button to start the process again.</b></p>
+      
+       <form action="/Instagrim/register.jsp">
+         <input type="submit" value="Register Repeat">
+       </form>
+
+    </body>
+
+</html>

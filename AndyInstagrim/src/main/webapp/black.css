@@ -1,0 +1,128 @@
+/* 
+    Created on : Oct 16, 2014
+    Author     : Zandes Dimitrios
+*/
+
+html{
+	background-color: black;
+}
+
+h1{
+	color: white;
+	text-decoration: underline;
+}
+
+h2{
+	color: white;
+}
+
+h3{
+	color: white;
+}
+
+li{
+	color: white;
+}
+
+p{
+	color: white;
+}
+
+nav {
+	
+    text-align: left;
+    border: 2px;
+    float: right;
+    
+}
+
+header{
+	
+	text-align: center;
+	border-width: 4px;
+	border-style: solid;
+	border-color: white;
+	
+}
+
+a{
+	color: white;
+}
+
+a:hover{
+	
+	color: red;
+	font-style: italic;
+	
+}
+
+#loginWindow{
+	
+	text-align: center;
+	width: 180px;
+    clear: both;
+	
+}
+
+#prof{
+	color: white;
+}
+
+.formContainer{
+	 
+    width: 200px;
+    clear: both;
+        
+}
+        
+.formContainer input{
+        
+     width: 100%;
+     clear: both;
+        
+}
+
+.formContainerTwo{
+	
+	width: 400px;
+	background-color: white;
+	
+}
+
+.formContainerThree{
+	
+	width: 500px;
+	background-color: white;
+	
+}
+
+.picsContainer{
+	
+	width: 700px;
+	background-color: white;
+	
+}
+
+.menuContainer{
+	
+	text-align: left;
+    border: 2px;
+    float: right;
+	
+}
+
+#alwaysLast{
+	
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	text-align: center;
+	
+}
+
+#themeTi{
+	
+	color: white;
+	text-decoration: underline;
+	
+}

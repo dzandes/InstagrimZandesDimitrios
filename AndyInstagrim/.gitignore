@@ -2,3 +2,5 @@
 /target/
 /home/
 /WebContent/
+.settings/*
+.classpath
