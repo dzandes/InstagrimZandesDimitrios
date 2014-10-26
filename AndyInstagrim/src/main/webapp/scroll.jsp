@@ -12,16 +12,16 @@
 <html>
 
     <head>
-       <title>Instagrim</title>
+       <title>Diminstagrim</title>
        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-       <link rel="stylesheet" type="text/css" href="/Instagrim/scroll.css" />
-       <script src="<c:url value="/Instagrim/latestversion.js" />"></script>   
+       <link rel="stylesheet" type="text/css" href="/Diminstagrim/scroll.css" />
+       <script src="<c:url value="/Diminstagrim/latestversion.js" />"></script>   
     </head>
 
     <body>
     
        <header>
-           <h1>InstaGrim!</h1>
+           <h1>DiminstaGrim!</h1>
            <h2>Your world in Black and White</h2>
        </header>
        
@@ -42,12 +42,12 @@
                          
                     	Pic p = (Pic) iterator.next();
              %>
-                 <a href="/Instagrim/Image/<%=p.getSUUID()%>" ><img src="/Instagrim/Thumb/<%=p.getSUUID()%>"></a>
+                 <a href="/Diminstagrim/Image/<%=p.getSUUID()%>" ><img src="/Diminstagrim/Thumb/<%=p.getSUUID()%>"></a>
              <% }
                     }%>
              </div>
            </div>
            
-           <script src="<c:url value="/Instagrim/scroll.js" />"></script> 
+           <script src="<c:url value="/Diminstagrim/scroll.js" />"></script> 
     
 </html>

@@ -10,21 +10,21 @@
 <html>
 
     <head>
-       <title>Instagrim</title>
+       <title>Diminstagrim</title>
        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <% 
            LoggedIn lg = (LoggedIn) session.getAttribute("LoggedIn");
            if(lg.getTheme().equals("dark")){ %>
-        <link rel="stylesheet" type="text/css" href="/Instagrim/black.css" />
+        <link rel="stylesheet" type="text/css" href="/Diminstagrim/black.css" />
         <% }else{ %>
-        <link rel="stylesheet" type="text/css" href="/Instagrim/Styles.css" />
+        <link rel="stylesheet" type="text/css" href="/Diminstagrim/Styles.css" />
         <%} %>
     </head>
     
     <body>
        
        <header>
-           <h1>InstaGrim!</h1>
+           <h1>DiminstaGrim!</h1>
            <h2>Your world in Black and White</h2>
        </header>
        
@@ -37,8 +37,8 @@
           <ul>
             <li><a href="profile.jsp">View my profile</a></li>
             <li><a href="upload.jsp">Upload</a></li>
-            <li><a href="/Instagrim/Images/<%=currentLg.getUsername()%>">Your Images</a></li>
-            <li><a href="/Instagrim/logout.jsp">Logout</a></li>      
+            <li><a href="/Diminstagrim/Images/<%=currentLg.getUsername()%>">Your Images</a></li>
+            <li><a href="/Diminstagrim/logout.jsp">Logout</a></li>      
           </ul> 
        </nav>
        
@@ -49,7 +49,7 @@
             <input type="submit" value="Yes">
        </form>
        
-       <form action="/Instagrim">
+       <form action="/Diminstagrim">
             <input type="submit" value="No">
        </form>
        

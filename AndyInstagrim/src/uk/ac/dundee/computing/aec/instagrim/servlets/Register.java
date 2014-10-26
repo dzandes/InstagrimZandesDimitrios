@@ -20,8 +20,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import javax.swing.JOptionPane;
 
 // import org.apache.jasper.tagplugins.jstl.core.Set;
 
@@ -81,7 +79,7 @@ public class Register extends HttpServlet {
         String emailaddress = request.getParameter("emailaddress");
         String themeSelected = request.getParameter("theme");
         
-        Session session = CassandraHosts.getCluster().connect("instagrim");
+        Session session = CassandraHosts.getCluster().connect("diminstagrim");
     	
     	// Used for checking if a username already exists.
     	User u = new User();
@@ -100,19 +98,19 @@ public class Register extends HttpServlet {
         
         if((username.length() > maxSize) || (password.length() > maxSize)){
         	
-        	response.sendRedirect("/Instagrim/usernamePassRegisterError.jsp");
+        	response.sendRedirect("/Diminstagrim/usernamePassRegisterError.jsp");
         	
         }else if((themeSelected.equals("dark") == false) && (themeSelected.equals("default") == false)){
         	
-        	response.sendRedirect("/Instagrim/usernamePassRegisterError.jsp");
+        	response.sendRedirect("/Diminstagrim/usernamePassRegisterError.jsp");
         	
         }else if(flag == 1){
         	
-        	response.sendRedirect("/Instagrim/usernameExistError.jsp");
+        	response.sendRedirect("/Diminstagrim/usernameExistError.jsp");
         	
         }else if((username.length() == 0) || (password.length() == 0)){
         	
-        	response.sendRedirect("/Instagrim/emptyUserPassRegisterError.jsp");
+        	response.sendRedirect("/Diminstagrim/emptyUserPassRegisterError.jsp");
         	
         }else if((userCheck == false) && (passCheck == false) && ((username.length() <= maxSize)) && (password.length() <= maxSize)){
         	
@@ -123,13 +121,13 @@ public class Register extends HttpServlet {
             us.setCluster(cluster);
             us.RegisterUser(username, password, firstname, lastname, email, themeSelected);
              
-     	    response.sendRedirect("/Instagrim");
+     	    response.sendRedirect("/Diminstagrim");
         	
         }else{
         	
         // If we get into the "else" section, it means one of our inputs(or both) contain(s) special character(s).
         	
-        	response.sendRedirect("/Instagrim/usernamePassRegisterError.jsp");
+        	response.sendRedirect("/Diminstagrim/usernamePassRegisterError.jsp");
         	
         }
         

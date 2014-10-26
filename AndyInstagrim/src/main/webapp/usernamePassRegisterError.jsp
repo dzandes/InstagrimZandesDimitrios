@@ -13,15 +13,15 @@
    <head>
    
        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-       <title>Instagrim</title>
-       <link rel="stylesheet" type="text/css" href="/Instagrim/Styles.css" />
+       <title>Diminstagrim</title>
+       <link rel="stylesheet" type="text/css" href="/Diminstagrim/Styles.css" />
        
    </head>
    
    <body>
    
        <header>
-           <h1>InstaGrim ! </h1>
+           <h1>DiminstaGrim ! </h1>
            <h2>Your world in Black and White</h2>
        </header>
        
@@ -38,7 +38,7 @@
        
        <p><b>Click the "Register Repeat" button to start the process again.</b></p>
        
-       <form action="/Instagrim/register.jsp">
+       <form action="/Diminstagrim/register.jsp">
          <input type="submit" value="Register Repeat">
        </form>
 

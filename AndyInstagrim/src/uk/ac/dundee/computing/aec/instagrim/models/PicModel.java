@@ -57,7 +57,7 @@ public class PicModel {
     Cluster cluster;
 
     public void PicModel() {
-
+    	
     }
 
     public void setCluster(Cluster cluster) {
@@ -76,8 +76,8 @@ public class PicModel {
             java.util.UUID picid = convertor.getTimeUUID();
             
             //The following is a quick and dirty way of doing this, will fill the disk quickly !
-            Boolean success = (new File("/var/tmp/instagrim/")).mkdirs();
-            FileOutputStream output = new FileOutputStream(new File("/var/tmp/instagrim/" + picid));
+            Boolean success = (new File("/var/tmp/diminstagrim/")).mkdirs();
+            FileOutputStream output = new FileOutputStream(new File("/var/tmp/diminstagrim/" + picid));
 
             output.write(b);
             byte [] thumbb = picresize(picid.toString(),types[1]);
@@ -86,7 +86,7 @@ public class PicModel {
             byte[] processedb = picdecolour(picid.toString(),types[1]);
             ByteBuffer processedbuf=ByteBuffer.wrap(processedb);
             int processedlength=processedb.length;
-            Session session = cluster.connect("instagrim");
+            Session session = cluster.connect("diminstagrim");
 
             PreparedStatement psInsertPic = session.prepare("insert into pics ( picid, image,thumb,processed, user, interaction_time,imagelength,thumblength,processedlength,type,name) values(?,?,?,?,?,?,?,?,?,?,?)");
             PreparedStatement psInsertPicToUser = session.prepare("insert into userpiclist ( picid, user, pic_added) values(?,?,?)");
@@ -109,7 +109,7 @@ public class PicModel {
     // Methods added (deletePic, insertTitle, retrieveTitle, getSketchPic)
     public void deletePic(java.util.UUID photoID){
     	
-    	Session session = CassandraHosts.getCluster().connect("instagrim");
+    	Session session = CassandraHosts.getCluster().connect("diminstagrim");
     	
     	PreparedStatement ps = session.prepare("delete from pics where picid=?");
    	    BoundStatement boundStatement = new BoundStatement(ps);
@@ -125,7 +125,7 @@ public class PicModel {
     
     public void insertTitle(String heading, String userName){
     	
-    	Session session = CassandraHosts.getCluster().connect("instagrim");
+    	Session session = CassandraHosts.getCluster().connect("diminstagrim");
     	
     	PreparedStatement ps2 = session.prepare("select picid,title from pics");
     	ResultSet rs = null;
@@ -156,7 +156,7 @@ public class PicModel {
     
     public String retrieveTitle(java.util.UUID photoid){
     	
-    	Session session = CassandraHosts.getCluster().connect("instagrim");
+    	Session session = CassandraHosts.getCluster().connect("diminstagrim");
     	
     	PreparedStatement ps = session.prepare("select title from pics where picid=?");
     	ResultSet rs = null;
@@ -181,7 +181,7 @@ public class PicModel {
     	
         try {
         	
-            BufferedImage BI = ImageIO.read(new File("/var/tmp/instagrim/" + picid));
+            BufferedImage BI = ImageIO.read(new File("/var/tmp/diminstagrim/" + picid));
             BufferedImage thumbnail = createThumbnail(BI);
             ByteArrayOutputStream baos = new ByteArrayOutputStream();
             ImageIO.write(thumbnail, type, baos);
@@ -203,7 +203,7 @@ public class PicModel {
     	
         try {
         	
-            BufferedImage BI = ImageIO.read(new File("/var/tmp/instagrim/" + picid));
+            BufferedImage BI = ImageIO.read(new File("/var/tmp/diminstagrim/" + picid));
             BufferedImage processed = createProcessed(BI);
             ByteArrayOutputStream baos = new ByteArrayOutputStream();
             ImageIO.write(processed, type, baos);
@@ -239,7 +239,7 @@ public class PicModel {
     public java.util.LinkedList<Pic> getPicsForUser(String User) {
     	
         java.util.LinkedList<Pic> Pics = new java.util.LinkedList<>();
-        Session session = CassandraHosts.getCluster().connect("instagrim");
+        Session session = CassandraHosts.getCluster().connect("diminstagrim");
         PreparedStatement ps = session.prepare("select picid from userpiclist where user =?");
         ResultSet rs = null;
         BoundStatement boundStatement = new BoundStatement(ps);
@@ -270,7 +270,7 @@ public class PicModel {
     // ADD for sketch filter (using JHLabs open source library)
     public Pic getSketchPic(int image_type, java.util.UUID picid){
     	
-    	Session session = cluster.connect("instagrim");
+    	Session session = cluster.connect("diminstagrim");
     	ByteBuffer bImage = null;
     	String type = null;
     	int length = 0;
@@ -365,7 +365,7 @@ public class PicModel {
 
     public Pic getPic(int image_type, java.util.UUID picid) {
     	
-        Session session = cluster.connect("instagrim");
+        Session session = cluster.connect("diminstagrim");
         ByteBuffer bImage = null;
         String type = null;
         int length = 0;

@@ -39,7 +39,6 @@ public class GiveTitle extends HttpServlet{
     @Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
     	
-    //	Session session = CassandraHosts.getCluster().connect("instagrim");
     	HttpSession sessionhttp;
     	sessionhttp=request.getSession();
     	LoggedIn lg = (LoggedIn) sessionhttp.getAttribute("LoggedIn");

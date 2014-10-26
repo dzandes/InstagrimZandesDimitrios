@@ -12,21 +12,21 @@
     <head>
     
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Instagrim</title>
-        <link rel="stylesheet" type="text/css" href="/Instagrim/Styles.css" />
+        <title>Diminstagrim</title>
+        <link rel="stylesheet" type="text/css" href="/Diminstagrim/Styles.css" />
         
     </head>
     
     <body>
     
         <header>
-           <h1>InstaGrim!</h1>
+           <h1>DiminstaGrim!</h1>
            <h2>Your world in Black and White</h2>
         </header>
         
         <nav>
             <ul>
-                <li><a href="/Instagrim/Images/majed">Sample Images</a></li>
+                <li><a href="/Diminstagrim/Images/majed">Sample Images</a></li>
             </ul>
         </nav>
        
@@ -61,7 +61,7 @@
         
         <footer>
             <ul>
-                <li class="footer"><a href="/Instagrim">Home</a></li>
+                <li class="footer"><a href="/Diminstagrim">Home</a></li>
             </ul>
         </footer>
         

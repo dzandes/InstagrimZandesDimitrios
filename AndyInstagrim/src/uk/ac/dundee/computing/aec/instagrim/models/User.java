@@ -66,7 +66,7 @@ public class User {
             
         }
         
-        Session session = cluster.connect("instagrim");
+        Session session = cluster.connect("diminstagrim");
         PreparedStatement ps = session.prepare("insert into userprofiles (login,password,first_name,last_name,email,theme) Values(?,?,?,?,?,?)");
        
         BoundStatement boundStatement = new BoundStatement(ps);
@@ -86,7 +86,7 @@ public class User {
     // Methods added (deleteAccount, logoutUser, profileDetails, usernameExists, setThemePref, setThemePrefVersionTwo getThemePref)  
     public void deleteAccount(String userName){
     	
-    	Session session = CassandraHosts.getCluster().connect("instagrim");
+    	Session session = CassandraHosts.getCluster().connect("diminstagrim");
     	
     	PreparedStatement ps = session.prepare("delete from userprofiles where login=?");
    	    BoundStatement boundStatement = new BoundStatement(ps);
@@ -172,7 +172,7 @@ public class User {
     
     public void setThemePref(LoggedIn l, String uname){
     	
-    	Session ses = CassandraHosts.getCluster().connect("instagrim");
+    	Session ses = CassandraHosts.getCluster().connect("diminstagrim");
     	
     	try{
     		
@@ -194,7 +194,7 @@ public class User {
     
     public void setThemePrefVersionTwo(LoggedIn l, String uname){
     	
-    	Session ses = CassandraHosts.getCluster().connect("instagrim");
+    	Session ses = CassandraHosts.getCluster().connect("diminstagrim");
     	
     	try{
     		
@@ -218,7 +218,7 @@ public class User {
     	
     	String themeResult = null;
     	
-    	Session session = CassandraHosts.getCluster().connect("instagrim");
+    	Session session = CassandraHosts.getCluster().connect("diminstagrim");
     	PreparedStatement ps = session.prepare("select theme from userprofiles where login=?");
    	    ResultSet rs = null;
    	    BoundStatement boundStatement = new BoundStatement(ps);
@@ -254,7 +254,7 @@ public class User {
         
         }
         
-        Session session = cluster.connect("instagrim");
+        Session session = cluster.connect("diminstagrim");
         PreparedStatement ps = session.prepare("select password from userprofiles where login =?");
         ResultSet rs = null;
         BoundStatement boundStatement = new BoundStatement(ps);

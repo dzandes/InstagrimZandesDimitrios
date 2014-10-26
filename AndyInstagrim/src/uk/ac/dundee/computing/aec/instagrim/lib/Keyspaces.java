@@ -1,8 +1,5 @@
 package uk.ac.dundee.computing.aec.instagrim.lib;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.datastax.driver.core.*;
 
 public final class Keyspaces {
@@ -14,8 +11,8 @@ public final class Keyspaces {
     public static void SetUpKeySpaces(Cluster c) {
         try {
             //Add some keyspaces here
-            String createkeyspace = "create keyspace if not exists instagrim  WITH replication = {'class':'SimpleStrategy', 'replication_factor':1}";
-            String CreatePicTable = "CREATE TABLE if not exists instagrim.Pics ("
+            String createkeyspace = "create keyspace if not exists diminstagrim  WITH replication = {'class':'SimpleStrategy', 'replication_factor':1}";
+            String CreatePicTable = "CREATE TABLE if not exists diminstagrim.Pics ("
                     + " user varchar,"
                     + " picid uuid, "
                     + " interaction_time timestamp,"
@@ -31,18 +28,18 @@ public final class Keyspaces {
                     + " PRIMARY KEY (picid)"
                     + ")";
             
-            String Createuserpiclist = "CREATE TABLE if not exists instagrim.userpiclist (\n"
+            String Createuserpiclist = "CREATE TABLE if not exists diminstagrim.userpiclist (\n"
                     + " picid uuid,\n"
                     + " user varchar,\n"
                     + " pic_added timestamp,\n"
                     + " PRIMARY KEY (picid,pic_added)\n"
                     + ") WITH CLUSTERING ORDER BY (pic_added desc);";
-            String CreateAddressType = "CREATE TYPE if not exists instagrim.address (\n"
+            String CreateAddressType = "CREATE TYPE if not exists diminstagrim.address (\n"
                     + "      street text,\n"
                     + "      city text,\n"
                     + "      zip int\n"
                     + "  );";
-            String CreateUserProfile = "CREATE TABLE if not exists instagrim.userprofiles (\n"
+            String CreateUserProfile = "CREATE TABLE if not exists diminstagrim.userprofiles (\n"
                     + "      login text PRIMARY KEY,\n"
                     + "     password text,\n"
                     + "      first_name text,\n"
@@ -52,7 +49,7 @@ public final class Keyspaces {
                     + "      addresses  map<text, frozen <address>>\n"
                     + "  );";
             
-            String CreateUserPicsIndex = "CREATE INDEX if not exists userpiclistindex ON instagrim.userpiclist(user);";
+            String CreateUserPicsIndex = "CREATE INDEX if not exists userpiclistindex ON diminstagrim.userpiclist(user);";
             
             Session session = c.connect();
             try {
@@ -61,13 +58,14 @@ public final class Keyspaces {
                         .prepare(createkeyspace);
                 BoundStatement boundStatement = new BoundStatement(
                         statement);
-                ResultSet rs = session
-                        .execute(boundStatement);
-                System.out.println("created instagrim ");
+                
+                session.execute(boundStatement);
+                
+                System.out.println("created diminstagrim ");
                 
             }catch (Exception et){
             	
-                System.out.println("Can't create instagrim " + et);
+                System.out.println("Can't create diminstagrim " + et);
                 
             }
 

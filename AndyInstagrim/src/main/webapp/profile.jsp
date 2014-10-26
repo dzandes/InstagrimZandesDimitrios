@@ -12,28 +12,28 @@
 
    <head>
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-      <title>Instagrim</title>
+      <title>Diminstagrim</title>
       <% 
           LoggedIn lg = (LoggedIn) session.getAttribute("LoggedIn");
           if(lg.getTheme().equals("dark")){ %>
-       <link rel="stylesheet" type="text/css" href="/Instagrim/black.css" />
+       <link rel="stylesheet" type="text/css" href="/Diminstagrim/black.css" />
        <% }else{ %>
-       <link rel="stylesheet" type="text/css" href="/Instagrim/Styles.css" />
+       <link rel="stylesheet" type="text/css" href="/Diminstagrim/Styles.css" />
        <%} %>
    </head>
 
    <body>
    
       <header>
-          <h1>InstaGrim!</h1>
+          <h1>DiminstaGrim!</h1>
           <h2>Your world in Black and White</h2>
       </header>
       
       <nav>
           <ul>
              <li><a href="upload.jsp">Upload</a></li>
-             <li><a href="/Instagrim/Images/<%=lg.getUsername()%>">Your Images</a></li>
-             <li><a href="/Instagrim/logout.jsp">Logout</a></li>
+             <li><a href="/Diminstagrim/Images/<%=lg.getUsername()%>">Your Images</a></li>
+             <li><a href="/Diminstagrim/logout.jsp">Logout</a></li>
           </ul>
       </nav>
       
@@ -55,7 +55,7 @@
   
       <footer>
           <ul>
-             <li class="footer"><a href="/Instagrim">Home</a></li>
+             <li class="footer"><a href="/Diminstagrim">Home</a></li>
           </ul>
       </footer>
 

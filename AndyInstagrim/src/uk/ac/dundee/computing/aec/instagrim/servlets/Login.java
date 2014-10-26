@@ -9,7 +9,6 @@ package uk.ac.dundee.computing.aec.instagrim.servlets;
 import com.datastax.driver.core.Cluster;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
@@ -80,7 +79,7 @@ public class Login extends HttpServlet {
             
         }else{
         	
-            response.sendRedirect("/Instagrim/login.jsp");
+            response.sendRedirect("/Diminstagrim/login.jsp");
             
         }
         
